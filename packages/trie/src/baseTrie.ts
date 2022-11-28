@@ -290,6 +290,10 @@ export class Trie {
     let foundNode = null
     value = await this.db.get(node as Buffer)
     if (value) {
+      // In order to be compatible with the implementation version of c++
+      if (value.length === 1 && (value[0] === 0x80 || value[0] === 0xc0)) {
+        throw new Error('Missing node in DB')
+      }
       foundNode = decodeNode(value)
     } else {
       // Dev note: this error message text is used for error checking in `checkRoot`, `verifyProof`, and `findPath`
