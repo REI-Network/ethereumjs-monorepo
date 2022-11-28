@@ -1,4 +1,4 @@
-# merkle-patricia-tree
+# @rei-network/trie
 
 [![NPM Package][trie-npm-badge]][trie-npm-link]
 [![GitHub Issues][trie-issues-badge]][trie-issues-link]
@@ -14,7 +14,7 @@ The only backing store supported is LevelDB through the `levelup` module.
 
 # INSTALL
 
-`npm install merkle-patricia-tree`
+`npm install @rei-netowrk/trie`
 
 # USAGE
 
@@ -26,7 +26,7 @@ By default, trie nodes are not deleted from the underlying DB to not corrupt old
 
 ```typescript
 import level from 'level'
-import { BaseTrie as Trie } from 'merkle-patricia-tree'
+import { BaseTrie as Trie } from '@rei-netowrk/trie'
 
 const db = level('./testdb')
 const trie = new Trie(db)
@@ -112,7 +112,7 @@ The `Trie.verifyRangeProof()` function can be used to check whether the given le
 
 ```typescript
 import level from 'level'
-import { SecureTrie as Trie } from 'merkle-patricia-tree'
+import { SecureTrie as Trie } from '@rei-netowrk/trie'
 
 const db = level('YOUR_PATH_TO_THE_GETH_CHAIN_DB')
 // Set stateRoot to block #222
@@ -135,7 +135,7 @@ trie
 ```typescript
 import level from 'level'
 import { Account, BN, bufferToHex, rlp } from 'ethereumjs-util'
-import { SecureTrie as Trie } from 'merkle-patricia-tree'
+import { SecureTrie as Trie } from '@rei-netowrk/trie'
 
 const stateRoot = 'STATE_ROOT_OF_A_BLOCK'
 
